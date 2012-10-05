@@ -391,7 +391,8 @@ static void transition_draw(Transition* transition, DiaRenderer* renderer)
   }
   
   /* Draw the trigger text */
-  if (transition->trigger_text && strlen(transition->trigger_text) != 0)
+  if ((transition->trigger_text && strlen(transition->trigger_text) != 0) ||
+      (transition-> action_text && strlen(transition-> action_text) != 0))
   {
     gchar *text = create_event_action_text(transition);
     renderer_ops->draw_string(renderer,
